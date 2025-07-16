@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background-color: #000;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Intro estilo Netflix */
+#intro {
+  position: fixed;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* Texto principal da intro */
+.logo-text {
+  font-size: 10vw;
+  color: red;
+  font-family: 'Brush Script MT', cursive;
+  animation: pulse 2s infinite;
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+/* Texto de instrução */
+.clique-text {
+  position: absolute;
+  bottom: 10%;
+  font-size: 1.5rem;
+  color: white;
+  animation: pulse 2s infinite;
+  font-family: 'Arial', sans-serif;
+  transition: opacity 0.5s ease;
+}
+
+/* Animação pulsante */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Zoom gigante no texto da intro */
+@keyframes zoomExpand {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(50);
+    opacity: 0;
+  }
+}
+
+.zoom-out {
+  animation: zoomExpand 2s forwards;
+}
+
+/* Fade-out da tela inteira */
+.fade-out {
+  animation: fadeOutIntro 2s forwards;
+}
+
+@keyframes fadeOutIntro {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Some com o "clique para começar" */
+.fade-out-text {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Conteúdo principal */
+#mainContent {
+  display: none;
+}
+
+/* Header estilo Netflix */
+.capa {
+  background-image: url('assets/capa.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  text-shadow: 1px 1px 5px black;
+}
+
+.capa-conteudo {
+  margin-top: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.capa h2 {
+  font-size: 8vw;
+  font-family: 'Brush Script MT', cursive;
+  margin-bottom: 5px;
+}
+
+.estreia {
+  font-size: 4vw;
+  color: #0f0;
+}
+
+.tags {
+  margin: 10px 0;
+}
+
+.tag {
+  display: inline-block;
+  background: #444;
+  color: white;
+  padding: 2px 8px;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+.verde {
+  background: #0f0;
+  color: #000;
+}
+
+.destaque {
+  font-weight: bold;
+  margin: 10px 0;
+  color: #f33;
+}
+
+.descricao {
+  font-size: 4vw;
+  margin-bottom: 20px;
+}
+
+.botoes .btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botoes .play {
+  background: #fff;
+  color: #000;
+}
+
+.episodios {
+  padding: 20px;
+  background: #111;
+}
+
+.episodios h2 {
+  font-size: 6vw;
+  margin-bottom: 15px;
+}
+
+.grid-episodios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 5px;
+}

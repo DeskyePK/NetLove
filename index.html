@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kauã e Alicy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Intro estilo Netflix com animação de pulsar -->
+<div id="intro" onclick="startIntro()">
+  <h1 class="logo-text pulse" id="logoText">Kauã e Alicy</h1>
+  <p class="clique-text" id="cliqueText">Clique para começar</p>
+</div>
+
+  <audio id="introSound">
+    <source src="assets/intro.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Site principal -->
+  <div id="mainContent">
+    <header class="capa">
+      <div class="capa-conteudo">
+        <h2>Kauã e Alicy</h2>
+        <p class="estreia">Estreou em 18/05/2025</p>
+        <div class="tags">
+          <span class="tag verde">L</span>
+          <span class="tag">HD</span>
+        </div>
+        <div class="destaque">🔥 Em alta no momento</div>
+        <p class="descricao">
+          Meu amor, você é o melhor presente que a vida me deu. Seu sorriso ilumina meus dias, seu abraço é meu lar, e seu amor é tudo que eu preciso para ser feliz. Te amo mais do que as palavras podem expressar! ❤️✨
+        </p>
+        <div class="botoes">
+          <button class="btn play">▶ Reproduzir</button>
+          <button class="btn">❤️ Favorito</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="episodios">
+      <h2>☰ Melhores episódios</h2>
+      <div class="grid-episodios">
+        <div class="card"><img src="assets/foto1.jpg"><span class="badge">HD</span></div>
+        <div class="card"><img src="assets/foto2.jpg"><span class="badge">HD</span></div>
+        <div class="card"><img src="assets/foto3.jpg"><span class="badge">HD</span></div>
+        <div class="card"><img src="assets/foto4.jpg"><span class="badge">HD</span></div>
+        <div class="card"><img src="assets/foto5.jpg"><span class="badge">HD</span></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function startIntro() {
+      const intro = document.getElementById("intro");
+      const audio = document.getElementById("introSound");
+
+      // Toca o som
+      audio.play().catch(err => {
+        console.warn("Erro ao tocar o áudio:", err);
+      });
+
+      // Ativa fade-out
+      intro.classList.add("fade-out");
+
+      // Após 4 segundos, esconde a intro e mostra o site
+      setTimeout(() => {
+        intro.style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
